@@ -17,10 +17,13 @@ export class ModalDetalleComponent implements OnInit{
               private router: Router
    ){}
   ngOnInit(): void {
+
+    //saca el id de la ruta
      this.route.paramMap.subscribe(params => {
       const id = params.get('id')!;
       this.getPokemon(+id)
 
+      //abre el modal tiempo despues de generar el componente y conseugir el id
       setTimeout(() => {
           this.openModal();
         });
@@ -29,6 +32,7 @@ export class ModalDetalleComponent implements OnInit{
 
 
 
+  //abre el modal detalle
   openModal() {
     const modalElement = document.getElementById('pokeModal');
     if (modalElement) {
@@ -37,13 +41,14 @@ export class ModalDetalleComponent implements OnInit{
     }
   }
 
+  //Obtiene un pokemon por id
    getPokemon(id: number){
     this.pokeService.getPokemon(id).subscribe(resp=> {
       this.pokemon=resp;
-      // console.log(resp)
     })
   }
 
+  //cierra el modal detalle
    cerrarModal() {
    const modalElement = document.getElementById('pokeModal');
   if (modalElement) {

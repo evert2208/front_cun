@@ -14,7 +14,7 @@ export class PokemonService {
   public cargando: boolean= false;
   constructor(private http: HttpClient) { }
 
-
+//obtiene los pokemones por limite
   getPokemons(limit: number): Observable<any[]> {
     if(this.cargando){
       return of([]);
@@ -32,13 +32,13 @@ export class PokemonService {
     );
   }
 
+  //Obtiene un pokemon por id
   getPokemon(id:number): Observable<any[]>{
     if(this.cargando){
       return of([]);
     }
     this.cargando=true;
     return this.http.get<any>(`${this.baseUrl}/${id}`).pipe(
-      // map((resp)=> resp.results),
       tap(()=>{
         this.cargando=false;
       }),

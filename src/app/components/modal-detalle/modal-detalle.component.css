@@ -1,0 +1,12 @@
+h6 {
+    padding-top: 20px;
+}
+
+.animate__animated.animate__flip {
+    --animate-duration: 4s;
+}
+
+
+/* .animate__flip:hover {
+    --animate-duration: 2s;
+} */

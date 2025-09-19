@@ -1,7 +1,7 @@
 <app-pokemones></app-pokemones>
 
 <!-- Modal Pokemon-->
-<div class="modal fade" id="pokeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade animate__animated animate__backInDown" id="pokeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" *ngIf="pokemon">
             <div class="modal-body">
@@ -14,14 +14,47 @@
                 <div class="row">
                     <div class="col">
                         <h3>{{pokemon.name | titlecase}}</h3>
-                        <small *ngFor="let type of pokemon.types">
+                    </div>
+                    <div class="row">
+                        <div class="col-5 img">
+                            <img [src]="pokemon.sprites.front_default" class="img-fluid img-redonda animate__animated animate__flip" width="140" height="200" alt="...">
+                            <img [src]="pokemon.sprites.back_default" class="img-fluid img-redonda animate__animated animate__flip" width="140" height="200" alt="...">
+                        </div>
+
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h6>Altura:</h6>
+                                    <span>{{pokemon.height}}</span>
+                                </div>
+                                <div class="col-6">
+                                    <h6>Peso:</h6>
+                                    <span>{{pokemon.weight}}</span>
+                                </div>
+                            </div>
+
+                            <h6>Tipo:</h6>
+                            <small *ngFor="let type of pokemon.types">
                       {{type.type.name}}
                     </small>
-                        <span>Altura: {{pokemon.height}}</span>
-                        <span>Peso: {{pokemon.weight}}</span>
+
+
+
+                            <h6>Habilidades:</h6>
+                            <small *ngFor="let hab of pokemon.abilities">
+                      {{hab.ability.name}}
+                    </small>
+                            <h6>Especie:</h6>
+                            <span>{{pokemon.species.name}}</span>
+                            <h6>Indices de juego:</h6>
+                            <small *ngFor="let game of pokemon.game_indices">
+                      {{game.version.name}}
+                    </small>
+                        </div>
                     </div>
+
                 </div>
-                <div class="row">
+                <div class="row" style="padding-top: 10px;">
                     <div class="col" style="text-align: right;">
                         <button class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
                     </div>
