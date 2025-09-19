@@ -1,0 +1,33 @@
+<app-pokemones></app-pokemones>
+
+<!-- Modal Pokemon-->
+<div class="modal fade" id="pokeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" *ngIf="pokemon">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col" style="text-align: right;">
+                        <a (click)="cerrarModal()"> <img src="../../../assets/btn-close.png" alt=""></a>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h3>{{pokemon.name | titlecase}}</h3>
+                        <small *ngFor="let type of pokemon.types">
+                      {{type.type.name}}
+                    </small>
+                        <span>Altura: {{pokemon.height}}</span>
+                        <span>Peso: {{pokemon.weight}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" style="text-align: right;">
+                        <button class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

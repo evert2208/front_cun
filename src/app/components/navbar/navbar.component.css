@@ -1,0 +1,20 @@
+.navbar-collapse {
+    display: grid;
+    place-items: center;
+}
+
+.form-control {
+    width: 20px;
+}
+
+span {
+    border-color: transparent;
+    background: transparent;
+    background-color: white;
+}
+
+input {
+    border-radius: 2px;
+    border-color: white;
+    background-color: white;
+}
